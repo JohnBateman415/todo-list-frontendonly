@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>To-Do List Front-End App</title>
+  <meta name="description" content="Simple To-Do List">
+  <meta name="author" content="John Bateman">
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  
+  <style>
+  
+  /*vvvvvvvv CSS GOES BELOW THIS COMMENT vvvvvvvv*/
+  body {
+    color: white;
+  }
+
+  #list-header {
+  	background-color: orange;
+  }
+  
+  #list-content {
+  	background-color: gray;
+}
+
+  #new-note {
+  	width: 700;
+  }
+
+  /*^^^^^^^^ CSS GOES ABOVE THIS COMMENT ^^^^^^^^*/
+  </style>
+
+
+</head>
+
+<body>
+  <!-- vvvvvvvv HTML GOES BELOW THIS COMMENT vvvvvvvv -->
+<div id="list-header">
+	<h1>To-Do List</h1>
+</div>  
+
+<div id="list-content">
+	<form>
+		<p> New Note: </p>
+		<textarea id="new-note"></textarea>
+	</form>
+
+	<button id="submit-note">Create a New Item</button>
+
+	<ul id="list"> 
+	</ul>
+</div>  
+  
+  <!-- ^^^^^^^^ HTML GOES ABOVE THIS COMMENT ^^^^^^^^ -->
+  
+  <script>
+    /*global $*/
+    /*vvvvvvvv JAVASCRIPT GOES BELOW THIS COMMENT vvvvvvvv*/
+    
+    $(document).ready(function () {
+	
+		$("#submit-note").click(function () {   
+			//can also use keypress method to listen for enter key and
+			//add textarea stuff without using the button
+			var noteText = $("#new-note").val();
+			console.log(noteText);
+			$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
+			$("#new-note").val("");
+			
+			$(".remove").click(function () {
+				$(this).parent().remove(); //select the item which is the button, select parent li and remove
+			}); //end of remove click
+		}); //end of button click function
+	
+    });  //end of doc ready
+    
+    /*^^^^^^^^ JAVASCRIPT GOES ABOVE THIS COMMENT ^^^^^^^^*/
+    
+  </script>
+</body>
+</html>
