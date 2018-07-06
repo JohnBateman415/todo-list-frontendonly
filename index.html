@@ -14,15 +14,17 @@
   
   /*vvvvvvvv CSS GOES BELOW THIS COMMENT vvvvvvvv*/
   body {
-    color: white;
+    color: #ff66ff;
   }
 
   #list-header {
   	background-color: orange;
+  	color: black;
   }
   
   #list-content {
-  	background-color: gray;
+  	background-color: #f0f0f5;
+  	color: crimson;
 }
 
   #new-note {
@@ -61,18 +63,25 @@
     
     $(document).ready(function () {
 	
+		var noteText; 
+		
+		$("#new-note").keypress(function(myEvent) {
+			if(myEvent.which == 13) {
+				$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
+			console.log("Enter was pressed");
+		   } //end if
+		});  //end keypress	
+	
 		$("#submit-note").click(function () {   
-			//can also use keypress method to listen for enter key and
-			//add textarea stuff without using the button
-			var noteText = $("#new-note").val();
+			noteText = $("#new-note").val();
 			console.log(noteText);
 			$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
 			$("#new-note").val("");
 			
 			$(".remove").click(function () {
 				$(this).parent().remove(); //select the item which is the button, select parent li and remove
-			}); //end of remove click
-		}); //end of button click function
+			}); //end of .remove click
+		}); //end of submit-note button click function
 	
     });  //end of doc ready
     
