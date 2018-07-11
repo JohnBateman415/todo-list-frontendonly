@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
   <title>To-Do List Front-End App</title>
   <meta name="description" content="Simple To-Do List">
   <meta name="author" content="John Bateman">
@@ -11,20 +12,29 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   
   <style>
-  
+  	
   /*vvvvvvvv CSS GOES BELOW THIS COMMENT vvvvvvvv*/
+  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  	
+  
+  
   body {
-    color: #ff66ff;
+    background-color: #ffffcc;
+    background: radial-gradient(circle, black, white);
   }
 
   #list-header {
   	background-color: orange;
   	color: black;
+  	font-family: 'Roboto';
+  	font-size: 48px;
   }
   
   #list-content {
   	background-color: #f0f0f5;
   	color: crimson;
+    font-family: 'Roboto';
+    font-size: 32px;	
 }
 
   #new-note {
