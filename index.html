@@ -88,8 +88,7 @@
 	
 		$("#submit-note").click(function () {   
 			noteText = $("#new-note").val();
-			console.log(noteText);
-			$("#list").append("<li>"+noteText+"<button class='remove'>Delete This Item</button><button class='replace'>Save Edit Made Directly In The Task</button></li>");
+      $("#list").append("<li><textarea>"+noteText+"</textarea><button class='remove'>Delete This Item</button><button class='replace'>Replace This</button></li>");
 			$("#new-note").val("");
 			
 			$(".remove").click(function () {
