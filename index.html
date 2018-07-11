@@ -23,6 +23,10 @@
     background: radial-gradient(circle, black, white);
   }
 
+  textarea {
+    background-color:  #cce6ff;
+  }
+
   #list-header {
   	background-color: orange;
   	color: black;
@@ -76,16 +80,16 @@
 		var noteText; 
 		
 		$("#new-note").keypress(function(myEvent) {
-			if(myEvent.which == 13) {
-				$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
-			console.log("Enter was pressed");
-		   } //end if
+//			if(myEvent.which == 13) {
+//				$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
+//			console.log("Enter was pressed");
+//		   } //end if
 		});  //end keypress	
 	
 		$("#submit-note").click(function () {   
 			noteText = $("#new-note").val();
 			console.log(noteText);
-			$("#list").append("<li>"+noteText+"<button class='remove'>Delete</button></li>");
+			$("#list").append("<li>"+noteText+"<button class='remove'>Delete This Item</button><button class='replace'>Save Edit Made Directly In The Task</button></li>");
 			$("#new-note").val("");
 			
 			$(".remove").click(function () {
